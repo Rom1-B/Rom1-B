@@ -23,9 +23,10 @@ open_to: "interesting problems & open-source collaboration"
 ---
 
 ### GitHub stats
-
+ 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Rom1-B&show_icons=true&hide_border=true&theme=default&hide=issues&count_private=true" height="150" />
+  <img src="https://streak-stats.demolab.com?user=Rom1-B&hide_border=true&theme=default" height="150" />
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Rom1-B&layout=compact&hide_border=true&theme=default" height="150" />
 </p>
+
 
