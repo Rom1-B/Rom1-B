@@ -15,18 +15,9 @@ PHP Developer at **[Teclib'](https://teclib-edition.com)** - makers of [GLPI](ht
 focus:
   - IT asset management & ITSM (GLPI)
   - Home automation (Home Assistant)
-  - Clean, maintainable code — no magic, no surprises
+  - Clean, maintainable code - no magic, no surprises
 
 open_to: "interesting problems & open-source collaboration"
 ```
-
----
-
-### GitHub stats
- 
-<p align="center">
-  <img src="https://streak-stats.demolab.com?user=Rom1-B&hide_border=true&theme=default" height="150" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Rom1-B&layout=compact&hide_border=true&theme=default" height="150" />
-</p>
 
 
