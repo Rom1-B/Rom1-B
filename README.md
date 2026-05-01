@@ -1,16 +1,31 @@
-## Hi there 👋
+<!-- typing SVG -->
+<p align="center">
+  <a href="https://readme-typing-svg.demolab.com">
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=22&pause=1000&color=378ADD&center=true&vCenter=true&width=500&lines=Hi%2C+I'm+Romain+%F0%9F%91%8B;PHP+Developer+%C2%B7+Open-source+builder;Building+tools+that+actually+get+used." alt="Typing SVG" />
+  </a>
+</p>
 
-<!--
-**Rom1-B/Rom1-B** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+---
 
-Here are some ideas to get you started:
+### About me
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+PHP Developer at **[Teclib'](https://teclib-edition.com)** - makers of [GLPI](https://github.com/glpi-project/glpi), the open-source ITSM platform.
+
+```yaml
+focus:
+  - IT asset management & ITSM (GLPI)
+  - Home automation (Home Assistant)
+  - Clean, maintainable code — no magic, no surprises
+
+open_to: "interesting problems & open-source collaboration"
+```
+
+---
+
+### GitHub stats
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=Rom1-B&show_icons=true&hide_border=true&theme=default&hide=issues&count_private=true" height="150" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Rom1-B&layout=compact&hide_border=true&theme=default" height="150" />
+</p>
+
