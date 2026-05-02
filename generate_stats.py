@@ -41,8 +41,8 @@ LANGUAGE_MAP = {
     '.makefile': 'Makefile',
 }
 
-# Fetch commits from last N days
-since_date = (datetime.now() - timedelta(days=DAYS_PERIOD)).isoformat()
+# Fix: use date only, not full ISO datetime (GitHub Search API rejects datetime)
+since_date = (datetime.now() - timedelta(days=DAYS_PERIOD)).strftime('%Y-%m-%d')
 search_query = f"author:{USERNAME} committer-date:>{since_date}"
 
 print(f"Searching commits from last {DAYS_PERIOD} days...")
@@ -54,61 +54,54 @@ total_commits = 0
 while True:
     search_url = f"https://api.github.com/search/commits?q={search_query}&per_page=100&page={page}"
     response = requests.get(search_url, headers=headers)
-    
+
     if response.status_code != 200:
         print(f"API Error: {response.status_code}")
         break
-    
+
     data = response.json()
     commits = data.get('items', [])
-    
+
     if not commits:
         break
-    
+
     for commit in commits:
         commit_url = commit['url']
         try:
             commit_response = requests.get(commit_url, headers=headers)
             if commit_response.status_code != 200:
                 continue
-            
+
             commit_data = commit_response.json()
-            
-            # Browse commit files
+
             for file in commit_data.get('files', []):
                 filename = file['filename']
-                # Detect language by extension
                 for ext, lang in LANGUAGE_MAP.items():
                     if filename.endswith(ext):
-                        # Count additions
                         additions = file.get('additions', 0)
                         languages[lang] += additions
                         break
-            
+
             total_commits += 1
-        except Exception as e:
+        except Exception:
             continue
-    
+
     if (page - 1) % 5 == 0:
         print(f"  [{total_commits} commits processed]")
-    
+
     total_items = data.get('total_count', 0)
     if page * 100 >= total_items:
         break
-    
+
     page += 1
 
 print(f"✓ {total_commits} commits analyzed")
 print(f"✓ {sum(languages.values())} lines of code added")
 
-# Filter out 0% languages and sort
 sorted_langs = sorted(languages.items(), key=lambda x: x[1], reverse=True)
 total_lines = sum(count for _, count in sorted_langs)
-
-# Keep only languages with > 0%
 sorted_langs = [(lang, count) for lang, count in sorted_langs if count > 0]
 
-# Generate markdown table with blue squares
 table_content = "| Language | Usage |\n|----------|-------|\n"
 
 for lang, count in sorted_langs:
@@ -117,7 +110,6 @@ for lang, count in sorted_langs:
     bar = "▌" * num_squares
     table_content += f"| {lang} | {bar} {percentage:.1f}% |\n"
 
-# Generate stats section
 stats_section = f"""---
 
 ### 📊 GitHub Stats (Last {MONTHS_PERIOD} months)
@@ -126,23 +118,25 @@ stats_section = f"""---
 *Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} UTC*
 """
 
-# Lire le README existant
 with open("README.md", "r") as f:
     readme_content = f.read()
 
-# Find existing stats section marker
 marker_start = "### 📊 GitHub Stats"
-marker_end = "\n*Last updated:"
+marker_end_options = ["\n*Last updated:", "\n*Dernière mise à jour:"]
 
 if marker_start in readme_content:
-    # Replace existing stats section
     start_idx = readme_content.find(marker_start)
-    end_idx = readme_content.find(marker_end, start_idx)
+    end_idx = -1
+    for marker in marker_end_options:
+        idx = readme_content.find(marker, start_idx)
+        if idx != -1:
+            end_idx = readme_content.find("\n", idx + 1) + 1
+            break
     if end_idx != -1:
-        end_idx = readme_content.find("\n", end_idx) + 1
-        readme_content = readme_content[:start_idx-4] + stats_section + readme_content[end_idx:]
+        readme_content = readme_content[:start_idx - 4] + stats_section + readme_content[end_idx:]
+    else:
+        readme_content = readme_content[:start_idx - 4] + stats_section
 else:
-    # Add stats section at the end
     readme_content += "\n" + stats_section
 
 with open("README.md", "w") as f:
