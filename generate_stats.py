@@ -94,37 +94,30 @@ while True:
 print(f"✓ {total_commits} commits analyzed")
 print(f"✓ {sum(languages.values())} lines of code added")
 
-# Generate HTML list with progress bars
-html_content = """<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 500px; margin: 20px 0;">
-"""
+# Filter out 0% languages and sort
+sorted_langs = sorted(languages.items(), key=lambda x: x[1], reverse=True)
+total_lines = sum(count for _, count in sorted_langs)
 
-colors = [
-    '#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8',
-    '#F7DC6F', '#BB8FCE', '#85C1E2', '#F8B88B', '#A9DFBF'
-]
+# Keep only languages with > 0%
+sorted_langs = [(lang, count) for lang, count in sorted_langs if count > 0]
 
-for idx, (lang, count) in enumerate(sorted_langs):
+# Generate markdown table with blue squares
+table_content = "| Language | Usage |\n|----------|-------|\n"
+
+for lang, count in sorted_langs:
     percentage = (count / total_lines * 100) if total_lines > 0 else 0
-    color = colors[idx % len(colors)]
-    
-    # Generate blue squares (🟦) based on percentage (each square = 5%)
     num_squares = max(1, round(percentage / 5))
     bar = "🟦" * num_squares
-    
-    html_content += f"| {lang} | {bar} {percentage:.1f}% |\n"
+    table_content += f"| {lang} | {bar} {percentage:.1f}% |\n"
 
-html_content += f"""
-*Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} UTC*
-"""
-
-# Générer le contenu des stats
+# Generate stats section
 stats_section = f"""---
 
 ### 📊 GitHub Stats (Last {DAYS_PERIOD} days)
 
-| Language | Usage |
-|----------|-------|
-{html_content}"""
+{table_content}
+*Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} UTC*
+"""
 
 # Lire le README existant
 with open("README.md", "r") as f:
