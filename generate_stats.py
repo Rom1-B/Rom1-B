@@ -7,6 +7,9 @@ from datetime import datetime, timedelta
 GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
 USERNAME = os.getenv('GITHUB_ACTOR')
 
+# Configuration
+DAYS_PERIOD = 180  # Change this to adjust the period (e.g., 30, 90, 180, 365)
+
 print(f"Generating stats for {USERNAME}...")
 
 headers = {"Authorization": f"token {GITHUB_TOKEN}"}
@@ -37,11 +40,11 @@ LANGUAGE_MAP = {
     '.makefile': 'Makefile',
 }
 
-# Fetch commits from last 180 days
-since_date = (datetime.now() - timedelta(days=180)).isoformat()
+# Fetch commits from last N days
+since_date = (datetime.now() - timedelta(days=DAYS_PERIOD)).isoformat()
 search_query = f"author:{USERNAME} committer-date:>{since_date}"
 
-print(f"Searching commits since {since_date[:10]}...")
+print(f"Searching commits from last {DAYS_PERIOD} days...")
 
 languages = defaultdict(int)
 page = 1
@@ -52,7 +55,7 @@ while True:
     response = requests.get(search_url, headers=headers)
     
     if response.status_code != 200:
-        print(f"Erreur API: {response.status_code}")
+        print(f"API Error: {response.status_code}")
         break
     
     data = response.json()
@@ -66,13 +69,13 @@ while True:
         commit_response = requests.get(commit_url, headers=headers)
         commit_data = commit_response.json()
         
-        # Parcourir les fichiers du commit
+        # Browse commit files
         for file in commit_data.get('files', []):
             filename = file['filename']
-            # Déterminer l'extension
+            # Detect language by extension
             for ext, lang in LANGUAGE_MAP.items():
                 if filename.endswith(ext):
-                    # Compter les additions
+                    # Count additions
                     additions = file.get('additions', 0)
                     languages[lang] += additions
                     break
@@ -80,7 +83,7 @@ while True:
         total_commits += 1
     
     if (page - 1) % 5 == 0:
-        print(f"  [{total_commits} commits traités]")
+        print(f"  [{total_commits} commits processed]")
     
     total_items = data.get('total_count', 0)
     if page * 100 >= total_items or total_items > 1000:
@@ -90,13 +93,6 @@ while True:
 
 print(f"✓ {total_commits} commits analyzed")
 print(f"✓ {sum(languages.values())} lines of code added")
-
-# Filter out 0% languages and sort
-sorted_langs = sorted(languages.items(), key=lambda x: x[1], reverse=True)
-total_lines = sum(count for _, count in sorted_langs)
-
-# Keep only languages with > 0%
-sorted_langs = [(lang, count) for lang, count in sorted_langs if count > 0]
 
 # Generate HTML list with progress bars
 html_content = """<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 500px; margin: 20px 0;">
@@ -111,52 +107,48 @@ for idx, (lang, count) in enumerate(sorted_langs):
     percentage = (count / total_lines * 100) if total_lines > 0 else 0
     color = colors[idx % len(colors)]
     
-    html_content += f"""  <div style="margin-bottom: 16px;">
-    <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
-      <span style="font-weight: 500; color: #333;">{lang}</span>
-      <span style="color: #666; font-size: 14px;">{percentage:.1f}%</span>
-    </div>
-    <div style="width: 100%; height: 8px; background: #eee; border-radius: 4px; overflow: hidden;">
-      <div style="width: {percentage}%; height: 100%; background: {color}; transition: width 0.3s ease;"></div>
-    </div>
-  </div>
-"""
+    # Generate blue squares (🟦) based on percentage (each square = 5%)
+    num_squares = max(1, round(percentage / 5))
+    bar = "🟦" * num_squares
+    
+    html_content += f"| {lang} | {bar} {percentage:.1f}% |\n"
 
-html_content += """</div>"""
+html_content += f"""
+*Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} UTC*
+"""
 
 # Générer le contenu des stats
 stats_section = f"""---
 
-### 📊 GitHub Stats (Last 6 months)
+### 📊 GitHub Stats (Last {DAYS_PERIOD} days)
 
-{html_content}
-
-*Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} UTC*
-"""
+| Language | Usage |
+|----------|-------|
+{html_content}"""
 
 # Lire le README existant
 with open("README.md", "r") as f:
     readme_content = f.read()
 
-# Chercher le marqueur ou la section existante
+# Find existing stats section marker
 marker_start = "### 📊 GitHub Stats"
-marker_end = "\n*Dernière mise à jour:"
+marker_end = "\n*Last updated:"
 
 if marker_start in readme_content:
-    # Supprimer l'ancienne section stats
+    # Replace existing stats section
     start_idx = readme_content.find(marker_start)
     end_idx = readme_content.find(marker_end, start_idx)
     if end_idx != -1:
         end_idx = readme_content.find("\n", end_idx) + 1
         readme_content = readme_content[:start_idx-4] + stats_section + readme_content[end_idx:]
 else:
-    # Ajouter la section stats à la fin
+    # Add stats section at the end
     readme_content += "\n" + stats_section
 
 with open("README.md", "w") as f:
     f.write(readme_content)
 
 print("✓ README.md updated")
-print("\nTop languages (6 months):")
+print(f"\nTop languages ({DAYS_PERIOD} days):")
 for lang, count in sorted_langs[:5]:
     print(f"  {lang}: {count:,} lines")
