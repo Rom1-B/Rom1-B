@@ -8,8 +8,8 @@ GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
 USERNAME = os.getenv('GITHUB_ACTOR')
 
 # Configuration
-MONTHS_PERIOD = 6
-DAYS_PERIOD = int(MONTHS_PERIOD * 365 / 12)  # ~183 days
+DAYS_PERIOD = 183
+GITHUB_SEARCH_LIMIT = 1000
 
 print(f"Generating stats for {USERNAME}...")
 
@@ -50,6 +50,7 @@ print(f"Searching commits from last {DAYS_PERIOD} days...")
 languages = defaultdict(int)
 page = 1
 total_commits = 0
+oldest_commit_date = None
 
 while True:
     search_url = f"https://api.github.com/search/commits?q={search_query}&per_page=100&page={page}"
@@ -74,6 +75,12 @@ while True:
 
             commit_data = commit_response.json()
 
+            commit_date_str = commit_data.get('commit', {}).get('author', {}).get('date')
+            if commit_date_str:
+                commit_date = datetime.fromisoformat(commit_date_str.replace('Z', '+00:00')).replace(tzinfo=None)
+                if oldest_commit_date is None or commit_date < oldest_commit_date:
+                    oldest_commit_date = commit_date
+
             for file in commit_data.get('files', []):
                 filename = file['filename']
                 for ext, lang in LANGUAGE_MAP.items():
@@ -90,7 +97,10 @@ while True:
         print(f"  [{total_commits} commits processed]")
 
     total_items = data.get('total_count', 0)
-    if page * 100 >= total_items:
+    reached_api_limit = total_commits >= GITHUB_SEARCH_LIMIT
+    if reached_api_limit or page * 100 >= total_items:
+        if reached_api_limit:
+            print(f"  [GitHub Search API limit reached at {GITHUB_SEARCH_LIMIT} commits]")
         break
 
     page += 1
@@ -102,6 +112,12 @@ sorted_langs = sorted(languages.items(), key=lambda x: x[1], reverse=True)
 total_lines = sum(count for _, count in sorted_langs)
 sorted_langs = [(lang, count) for lang, count in sorted_langs if count > 0]
 
+if oldest_commit_date is not None:
+    days_covered = (datetime.now() - oldest_commit_date).days
+    period_label = f"Last {total_commits} commits (~{days_covered} days)"
+else:
+    period_label = f"Last {MONTHS_PERIOD} months"
+
 table_content = "| Language | Usage |\n|----------|-------|\n"
 
 for lang, count in sorted_langs:
@@ -112,7 +128,7 @@ for lang, count in sorted_langs:
 
 stats_section = f"""---
 
-### 📊 GitHub Stats (Last {MONTHS_PERIOD} months)
+### 📊 GitHub Stats ({period_label})
 
 {table_content}
 *Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} UTC*
@@ -143,6 +159,6 @@ with open("README.md", "w") as f:
     f.write(readme_content)
 
 print("✓ README.md updated")
-print(f"\nTop languages ({MONTHS_PERIOD} months):")
+print(f"\nTop languages ({period_label}):")
 for lang, count in sorted_langs[:5]:
     print(f"  {lang}: {count:,} lines")
