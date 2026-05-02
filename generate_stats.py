@@ -8,7 +8,8 @@ GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
 USERNAME = os.getenv('GITHUB_ACTOR')
 
 # Configuration
-DAYS_PERIOD = 180  # Change this to adjust the period (e.g., 30, 90, 180, 365)
+MONTHS_PERIOD = 6
+DAYS_PERIOD = int(MONTHS_PERIOD * 365 / 12)  # ~183 days
 
 print(f"Generating stats for {USERNAME}...")
 
@@ -86,7 +87,7 @@ while True:
         print(f"  [{total_commits} commits processed]")
     
     total_items = data.get('total_count', 0)
-    if page * 100 >= total_items:
+    if page * 100 >= total_items or total_items > 1000:
         break
     
     page += 1
@@ -113,7 +114,7 @@ for lang, count in sorted_langs:
 # Generate stats section
 stats_section = f"""---
 
-### 📊 GitHub Stats (Last {DAYS_PERIOD} days)
+### 📊 GitHub Stats (Last {MONTHS_PERIOD} months)
 
 {table_content}
 *Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} UTC*
@@ -142,6 +143,6 @@ with open("README.md", "w") as f:
     f.write(readme_content)
 
 print("✓ README.md updated")
-print(f"\nTop languages ({DAYS_PERIOD} days):")
+print(f"\nTop languages ({MONTHS_PERIOD} months):")
 for lang, count in sorted_langs[:5]:
     print(f"  {lang}: {count:,} lines")
