@@ -67,27 +67,33 @@ while True:
     
     for commit in commits:
         commit_url = commit['url']
-        commit_response = requests.get(commit_url, headers=headers)
-        commit_data = commit_response.json()
-        
-        # Browse commit files
-        for file in commit_data.get('files', []):
-            filename = file['filename']
-            # Detect language by extension
-            for ext, lang in LANGUAGE_MAP.items():
-                if filename.endswith(ext):
-                    # Count additions
-                    additions = file.get('additions', 0)
-                    languages[lang] += additions
-                    break
-        
-        total_commits += 1
+        try:
+            commit_response = requests.get(commit_url, headers=headers)
+            if commit_response.status_code != 200:
+                continue
+            
+            commit_data = commit_response.json()
+            
+            # Browse commit files
+            for file in commit_data.get('files', []):
+                filename = file['filename']
+                # Detect language by extension
+                for ext, lang in LANGUAGE_MAP.items():
+                    if filename.endswith(ext):
+                        # Count additions
+                        additions = file.get('additions', 0)
+                        languages[lang] += additions
+                        break
+            
+            total_commits += 1
+        except Exception as e:
+            continue
     
     if (page - 1) % 5 == 0:
         print(f"  [{total_commits} commits processed]")
     
     total_items = data.get('total_count', 0)
-    if page * 100 >= total_items or total_items > 1000:
+    if page * 100 >= total_items:
         break
     
     page += 1
