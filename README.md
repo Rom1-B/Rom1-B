@@ -21,3 +21,14 @@ open_to: "interesting problems & open-source collaboration"
 ```
 
 
+
+---
+
+### 📊 GitHub Stats
+
+![Languages](languages.png)
+
+| Langage | Octets | % |
+|---------|--------|-----|
+
+*Dernière mise à jour: 2026-05-02 08:14:50 UTC*
