@@ -22,19 +22,23 @@ open_to: "interesting problems & open-source collaboration"
 
 
 
--------
+--------
 
-### 📊 GitHub Stats (Last 180 days)
+### 📊 GitHub Stats (Last 90 days)
 
 | Language | Usage |
 |----------|-------|
-| PHP | 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 96.8% |
-| Twig | 🟦 2.1% |
-| SCSS | 🟦 0.7% |
-| YAML | 🟦 0.2% |
-| JavaScript | 🟦 0.1% |
-| JSON | 🟦 0.0% |
+| Go | ▌▌▌▌▌▌▌ 34.0% |
+| PHP | ▌▌▌▌▌▌▌ 33.0% |
+| JSON | ▌▌▌▌ 18.9% |
+| Shell | ▌▌ 11.4% |
+| Python | ▌ 1.1% |
+| YAML | ▌ 0.9% |
+| JavaScript | ▌ 0.3% |
+| Twig | ▌ 0.3% |
+| CSS | ▌ 0.0% |
 
+*Last updated: 2026-05-02 15:41:15 UTC*
 *Last updated: 2026-05-02 15:31:13 UTC*
 *Last updated: 2026-05-02 15:19:36 UTC*
 *Dernière mise à jour: 2026-05-02 08:38:08 UTC*
