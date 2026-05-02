@@ -37,10 +37,3 @@ open_to: "interesting problems & open-source collaboration"
 | JavaScript | ▌ 0.3% |
 | Twig | ▌ 0.3% |
 | CSS | ▌ 0.0% |
-
-*Last updated: 2026-05-02 15:41:15 UTC*
-*Last updated: 2026-05-02 15:31:13 UTC*
-*Last updated: 2026-05-02 15:19:36 UTC*
-*Dernière mise à jour: 2026-05-02 08:38:08 UTC*
-*Dernière mise à jour: 2026-05-02 08:22:49 UTC*
-*Dernière mise à jour: 2026-05-02 08:14:50 UTC*
