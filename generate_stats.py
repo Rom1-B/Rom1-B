@@ -107,7 +107,7 @@ table_content = "| Language | Usage |\n|----------|-------|\n"
 for lang, count in sorted_langs:
     percentage = (count / total_lines * 100) if total_lines > 0 else 0
     num_squares = max(1, round(percentage / 5))
-    bar = "🟦" * num_squares
+    bar = "▌" * num_squares
     table_content += f"| {lang} | {bar} {percentage:.1f}% |\n"
 
 # Generate stats section
