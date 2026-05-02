@@ -8,7 +8,7 @@ GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
 USERNAME = os.getenv('GITHUB_ACTOR')
 
 # Configuration
-DAYS_PERIOD = 90  # Change this to adjust the period (e.g., 30, 90, 180, 365)
+DAYS_PERIOD = 180  # Change this to adjust the period (e.g., 30, 90, 180, 365)
 
 print(f"Generating stats for {USERNAME}...")
 
@@ -86,7 +86,7 @@ while True:
         print(f"  [{total_commits} commits processed]")
     
     total_items = data.get('total_count', 0)
-    if page * 100 >= total_items or total_items > 1000:
+    if page * 100 >= total_items:
         break
     
     page += 1
