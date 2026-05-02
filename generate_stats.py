@@ -2,13 +2,12 @@ import requests
 import matplotlib.pyplot as plt
 from collections import defaultdict
 import os
-from datetime import datetime, timedelta
+from datetime import datetime
 
 GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
 USERNAME = os.getenv('GITHUB_ACTOR')
 
 # Configuration
-DAYS_PERIOD = 183
 GITHUB_SEARCH_LIMIT = 1000
 
 print(f"Generating stats for {USERNAME}...")
@@ -41,11 +40,9 @@ LANGUAGE_MAP = {
     '.makefile': 'Makefile',
 }
 
-# Fix: use date only, not full ISO datetime (GitHub Search API rejects datetime)
-since_date = (datetime.now() - timedelta(days=DAYS_PERIOD)).strftime('%Y-%m-%d')
-search_query = f"author:{USERNAME} committer-date:>{since_date}"
+search_query = f"author:{USERNAME}"
 
-print(f"Searching commits from last {DAYS_PERIOD} days...")
+print(f"Searching last {GITHUB_SEARCH_LIMIT} commits...")
 
 languages = defaultdict(int)
 page = 1
@@ -113,10 +110,9 @@ total_lines = sum(count for _, count in sorted_langs)
 sorted_langs = [(lang, count) for lang, count in sorted_langs if count > 0]
 
 if oldest_commit_date is not None:
-    days_covered = (datetime.now() - oldest_commit_date).days
-    period_label = f"Last {total_commits} commits (~{days_covered} days)"
+    period_label = f"Last {total_commits} commits (since {oldest_commit_date.strftime('%Y-%m-%d')})"
 else:
-    period_label = f"Last {MONTHS_PERIOD} months"
+    period_label = f"Last {total_commits} commits"
 
 table_content = "| Language | Usage |\n|----------|-------|\n"
 
