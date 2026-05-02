@@ -50,7 +50,7 @@ total_commits = 0
 oldest_commit_date = None
 
 while True:
-    search_url = f"https://api.github.com/search/commits?q={search_query}&per_page=100&page={page}"
+    search_url = f"https://api.github.com/search/commits?q={search_query}&sort=committer-date&order=desc&per_page=100&page={page}"
     response = requests.get(search_url, headers=headers)
 
     if response.status_code != 200:
@@ -107,7 +107,7 @@ print(f"✓ {sum(languages.values())} lines of code added")
 
 sorted_langs = sorted(languages.items(), key=lambda x: x[1], reverse=True)
 total_lines = sum(count for _, count in sorted_langs)
-sorted_langs = [(lang, count) for lang, count in sorted_langs if count > 0]
+sorted_langs = [(lang, count) for lang, count in sorted_langs if count > 0 and count / total_lines * 100 >= 0.1]
 
 if oldest_commit_date is not None:
     period_label = f"Last {total_commits} commits (since {oldest_commit_date.strftime('%Y-%m-%d')})"
