@@ -22,8 +22,8 @@ jobs:
       
       - name: Generate stats
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+          GITHUB_ACTOR: Rom1-B
         run: python generate_stats.py
       
       - name: Commit and push
