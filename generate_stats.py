@@ -11,7 +11,7 @@ print(f"Generating stats for {USERNAME}...")
 
 headers = {"Authorization": f"token {GITHUB_TOKEN}"}
 
-# Mapping extension → langage
+# Language extension mapping
 LANGUAGE_MAP = {
     '.php': 'PHP',
     '.py': 'Python',
@@ -37,8 +37,8 @@ LANGUAGE_MAP = {
     '.makefile': 'Makefile',
 }
 
-# Récupérer les commits des 90 derniers jours
-since_date = (datetime.now() - timedelta(days=90)).isoformat()
+# Fetch commits from last 180 days
+since_date = (datetime.now() - timedelta(days=180)).isoformat()
 search_query = f"author:{USERNAME} committer-date:>{since_date}"
 
 print(f"Searching commits since {since_date[:10]}...")
@@ -88,45 +88,50 @@ while True:
     
     page += 1
 
-print(f"✓ {total_commits} commits analysés")
-print(f"✓ {sum(languages.values())} lignes de code ajoutées")
+print(f"✓ {total_commits} commits analyzed")
+print(f"✓ {sum(languages.values())} lines of code added")
 
-# Trier par importance
+# Filter out 0% languages and sort
 sorted_langs = sorted(languages.items(), key=lambda x: x[1], reverse=True)
+total_lines = sum(count for _, count in sorted_langs)
 
-# Générer le graphique (top 10)
-langs = [item[0] for item in sorted_langs[:10]]
-counts = [item[1] for item in sorted_langs[:10]]
+# Keep only languages with > 0%
+sorted_langs = [(lang, count) for lang, count in sorted_langs if count > 0]
 
-plt.figure(figsize=(12, 7))
-colors = plt.cm.Set3(range(len(langs)))
-plt.barh(langs, counts, color=colors)
-plt.xlabel("Lignes de code ajoutées")
-plt.title(f"Langages - 90 derniers jours - {USERNAME}")
-plt.gca().invert_yaxis()
-plt.tight_layout()
-plt.savefig("languages.png", dpi=300, bbox_inches='tight')
-print("✓ Graphique généré")
+# Generate HTML list with progress bars
+html_content = """<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 500px; margin: 20px 0;">
+"""
+
+colors = [
+    '#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8',
+    '#F7DC6F', '#BB8FCE', '#85C1E2', '#F8B88B', '#A9DFBF'
+]
+
+for idx, (lang, count) in enumerate(sorted_langs):
+    percentage = (count / total_lines * 100) if total_lines > 0 else 0
+    color = colors[idx % len(colors)]
+    
+    html_content += f"""  <div style="margin-bottom: 16px;">
+    <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+      <span style="font-weight: 500; color: #333;">{lang}</span>
+      <span style="color: #666; font-size: 14px;">{percentage:.1f}%</span>
+    </div>
+    <div style="width: 100%; height: 8px; background: #eee; border-radius: 4px; overflow: hidden;">
+      <div style="width: {percentage}%; height: 100%; background: {color}; transition: width 0.3s ease;"></div>
+    </div>
+  </div>
+"""
+
+html_content += """</div>"""
 
 # Générer le contenu des stats
 stats_section = f"""---
 
-### 📊 GitHub Stats (90 jours)
+### 📊 GitHub Stats (Last 6 months)
 
-![Languages](languages.png)
+{html_content}
 
-| Langage | Lignes | % |
-|---------|--------|-----|
-"""
-
-total_lines = sum(count for _, count in sorted_langs)
-
-for lang, count in sorted_langs:
-    percentage = (count / total_lines * 100) if total_lines > 0 else 0
-    stats_section += f"| {lang} | {count:,} | {percentage:.1f}% |\n"
-
-stats_section += f"""
-*Dernière mise à jour: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} UTC*
+*Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} UTC*
 """
 
 # Lire le README existant
@@ -151,7 +156,7 @@ else:
 with open("README.md", "w") as f:
     f.write(readme_content)
 
-print("✓ README.md mis à jour")
-print("\nTop langages (90 jours):")
+print("✓ README.md updated")
+print("\nTop languages (6 months):")
 for lang, count in sorted_langs[:5]:
-    print(f"  {lang}: {count:,} lignes")
+    print(f"  {lang}: {count:,} lines")
