@@ -1,4 +1,4 @@
-<svg width="500" height="194" viewBox="0 0 500 194" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub language stats: Last 1000 commits · since 2025-12-09">
+<svg width="500" height="194" viewBox="0 0 500 194" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub language stats: Last 1000 commits · since 2025-12-10">
 <rect width="500" height="194" rx="12" fill="#ffffff" stroke="#e1e4e8" stroke-width="1"/>
 <style>
 @media (prefers-color-scheme: dark) {
@@ -11,10 +11,10 @@
 }
 </style>
 <rect class="bg" width="500" height="194" rx="12" fill="#ffffff" stroke="#e1e4e8" stroke-width="1"/>
-<text x="24" y="30" font-family="'Segoe UI',system-ui,sans-serif" font-size="13" font-weight="500" fill="#57606a" class="title">📊 GitHub Stats · Last 1000 commits · since 2025-12-09</text>
+<text x="24" y="30" font-family="'Segoe UI',system-ui,sans-serif" font-size="13" font-weight="500" fill="#57606a" class="title">📊 GitHub Stats · Last 1000 commits · since 2025-12-10</text>
 <rect class="track" x="24" y="52" width="452" height="10" rx="5" fill="#eaeef2"/>
-<rect x="24" y="52" width="174" height="10" rx="5" fill="#4F5D95"/><rect x="29" y="52" width="169" height="10" fill="#4F5D95"/>
-<rect x="200" y="52" width="136" height="10" fill="#00ADD8"/>
+<rect x="24" y="52" width="173" height="10" rx="5" fill="#4F5D95"/><rect x="29" y="52" width="168" height="10" fill="#4F5D95"/>
+<rect x="199" y="52" width="137" height="10" fill="#00ADD8"/>
 <rect x="338" y="52" width="77" height="10" fill="#292929"/>
 <rect x="417" y="52" width="46" height="10" fill="#89E051"/>
 <rect x="465" y="52" width="6" height="10" fill="#CB171E"/>
@@ -24,16 +24,16 @@
 <rect x="490" y="52" width="2" height="10" rx="5" fill="#F1E05A"/>
 <circle cx="29" cy="90" r="4" fill="#4F5D95"/>
 <text x="38" y="95" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#24292f" class="legend-name">PHP</text>
-<text x="166" y="95" text-anchor="end" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#57606a" class="legend-pct">38.5%</text>
+<text x="166" y="95" text-anchor="end" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#57606a" class="legend-pct">38.4%</text>
 <circle cx="179" cy="90" r="4" fill="#00ADD8"/>
 <text x="188" y="95" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#24292f" class="legend-name">Go</text>
-<text x="316" y="95" text-anchor="end" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#57606a" class="legend-pct">30.2%</text>
+<text x="316" y="95" text-anchor="end" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#57606a" class="legend-pct">30.3%</text>
 <circle cx="329" cy="90" r="4" fill="#292929"/>
 <text x="338" y="95" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#24292f" class="legend-name">JSON</text>
 <text x="466" y="95" text-anchor="end" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#57606a" class="legend-pct">17.0%</text>
 <circle cx="29" cy="114" r="4" fill="#89E051"/>
 <text x="38" y="119" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#24292f" class="legend-name">Shell</text>
-<text x="166" y="119" text-anchor="end" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#57606a" class="legend-pct">10.2%</text>
+<text x="166" y="119" text-anchor="end" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#57606a" class="legend-pct">10.1%</text>
 <circle cx="179" cy="114" r="4" fill="#CB171E"/>
 <text x="188" y="119" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#24292f" class="legend-name">YAML</text>
 <text x="316" y="119" text-anchor="end" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#57606a" class="legend-pct">1.4%</text>
@@ -49,5 +49,5 @@
 <circle cx="329" cy="138" r="4" fill="#F1E05A"/>
 <text x="338" y="143" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#24292f" class="legend-name">JavaScript</text>
 <text x="466" y="143" text-anchor="end" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#57606a" class="legend-pct">0.4%</text>
-<text x="24" y="172" font-family="'Segoe UI',system-ui,sans-serif" font-size="11" fill="#8c959f" class="footer">Updated 2026-05-12 03:07 UTC</text>
+<text x="24" y="172" font-family="'Segoe UI',system-ui,sans-serif" font-size="11" fill="#8c959f" class="footer">Updated 2026-05-13 03:07 UTC</text>
 </svg>
