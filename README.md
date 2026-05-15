@@ -1,7 +1,7 @@
 <!-- typing SVG -->
 <p align="center">
   <a href="https://readme-typing-svg.demolab.com">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=22&pause=1000&color=378ADD&center=true&vCenter=true&width=600&lines=Hi%2C+I'm+Romain+%F0%9F%91%8B;Developer+-+DRY+%E2%80%A2+KISS+%E2%80%A2+YAGNI" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=22&duration=2500&pause=400&color=378ADD&center=true&vCenter=true&width=600&repeat=false&lines=I'm+a+programare;I'm+a+programer;I'm+a+programmer;I+write+code+%3A)" alt="Typing SVG" />
   </a>
 </p>
 
