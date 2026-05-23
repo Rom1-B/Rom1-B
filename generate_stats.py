@@ -1,3 +1,7 @@
+# Scans the last 1000 commits authored by USERNAME via the GitHub Search API,
+# then fetches each commit's file list concurrently and sums `additions` per
+# file extension. The result is rendered as a segmented bar chart in languages.svg.
+
 import requests
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
