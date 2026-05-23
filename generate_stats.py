@@ -49,6 +49,7 @@ LANGUAGE_MAP = {
     '.yml': 'YAML',
     '.sql': 'SQL',
     '.makefile': 'Makefile',
+    '.md': 'Markdown',
 }
 
 # GitHub Linguist-inspired colors
@@ -74,6 +75,7 @@ LANGUAGE_COLORS: dict[str, str] = {
     'YAML':       '#CB171E',
     'SQL':        '#E38C00',
     'Makefile':   '#427819',
+    'Markdown':   '#083FA1',
 }
 
 FALLBACK_COLORS = [
