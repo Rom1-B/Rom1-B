@@ -16,6 +16,16 @@ print(f"Generating stats for {USERNAME}...")
 
 headers = {"Authorization": f"token {GITHUB_TOKEN}"}
 
+IGNORED_FILES = {
+    'package-lock.json',
+    'yarn.lock',
+    'composer.lock',
+    'Pipfile.lock',
+    'poetry.lock',
+    'pnpm-lock.yaml',
+    'bun.lockb',
+}
+
 LANGUAGE_MAP = {
     '.php': 'PHP',
     '.py': 'Python',
@@ -96,6 +106,9 @@ def process_commit(commit_url: str) -> tuple[dict[str, int], datetime | None]:
     langs: dict[str, int] = defaultdict(int)
     for file in data.get('files', []):
         filename = file['filename']
+        basename = filename.rsplit('/', 1)[-1]
+        if basename in IGNORED_FILES:
+            continue
         for ext, lang in LANGUAGE_MAP.items():
             if filename.endswith(ext):
                 langs[lang] += file.get('additions', 0)
