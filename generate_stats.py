@@ -30,6 +30,8 @@ IGNORED_FILES = {
     'bun.lockb',
 }
 
+MD_EXCLUDED_REPO = f"{USERNAME}/private"
+
 LANGUAGE_MAP = {
     '.php': 'PHP',
     '.py': 'Python',
@@ -104,7 +106,7 @@ def fetch_with_retry(url: str) -> dict | None:
     return None
 
 
-def process_commit(commit_url: str) -> tuple[dict[str, int], datetime | None]:
+def process_commit(commit_url: str, repo_full_name: str) -> tuple[dict[str, int], datetime | None]:
     data = fetch_with_retry(commit_url)
     if data is None:
         return {}, None
@@ -114,6 +116,8 @@ def process_commit(commit_url: str) -> tuple[dict[str, int], datetime | None]:
         filename = file['filename']
         basename = filename.rsplit('/', 1)[-1]
         if basename in IGNORED_FILES:
+            continue
+        if filename.endswith('.md') and repo_full_name == MD_EXCLUDED_REPO:
             continue
         for ext, lang in LANGUAGE_MAP.items():
             if filename.endswith(ext):
@@ -137,7 +141,7 @@ print(f"Searching last {GITHUB_SEARCH_LIMIT} commits...")
 languages: dict[str, int] = defaultdict(int)
 page = 1
 total_commits = 0
-commit_urls: list[str] = []
+commits_info: list[tuple[str, str]] = []
 
 # Collect all commit URLs first
 while True:
@@ -153,21 +157,27 @@ while True:
     if not commits:
         break
 
-    commit_urls.extend(commit['url'] for commit in commits)
+    commits_info.extend(
+        (commit['url'], commit.get('repository', {}).get('full_name', ''))
+        for commit in commits
+    )
     total_items = data.get('total_count', 0)
 
-    if len(commit_urls) >= GITHUB_SEARCH_LIMIT or page * 100 >= total_items:
-        if len(commit_urls) >= GITHUB_SEARCH_LIMIT:
+    if len(commits_info) >= GITHUB_SEARCH_LIMIT or page * 100 >= total_items:
+        if len(commits_info) >= GITHUB_SEARCH_LIMIT:
             print(f"  [GitHub Search API limit reached at {GITHUB_SEARCH_LIMIT} commits]")
         break
 
     page += 1
 
-commit_urls = commit_urls[:GITHUB_SEARCH_LIMIT]
+commits_info = commits_info[:GITHUB_SEARCH_LIMIT]
 
 # Fetch commit details concurrently
 with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
-    futures = {executor.submit(process_commit, url): url for url in commit_urls}
+    futures = {
+        executor.submit(process_commit, url, repo): (url, repo)
+        for url, repo in commits_info
+    }
     for future in as_completed(futures):
         langs, _ = future.result()
         for lang, count in langs.items():
@@ -176,8 +186,8 @@ with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
         if total_commits % 100 == 0:
             print(f"  [{total_commits} commits processed]")
 
-# Commits are sorted desc by date, so the last URL is the oldest
-_, oldest_commit_date = process_commit(commit_urls[-1]) if commit_urls else ({}, None)
+# Commits are sorted desc by date, so the last one is the oldest
+_, oldest_commit_date = process_commit(*commits_info[-1]) if commits_info else ({}, None)
 
 print(f"✓ {total_commits} commits analyzed")
 print(f"✓ {sum(languages.values())} lines of code added")
