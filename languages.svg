@@ -13,26 +13,26 @@
 <rect class="bg" width="500" height="218" rx="12" fill="#ffffff" stroke="#e1e4e8" stroke-width="1"/>
 <text x="24" y="30" font-family="'Segoe UI',system-ui,sans-serif" font-size="13" font-weight="500" fill="#57606a" class="title">📊 GitHub Stats · Last 900 commits · since 2026-03-27</text>
 <rect class="track" x="24" y="52" width="452" height="10" rx="5" fill="#eaeef2"/>
-<rect x="24" y="52" width="204" height="10" rx="5" fill="#4F5D95"/><rect x="29" y="52" width="199" height="10" fill="#4F5D95"/>
-<rect x="230" y="52" width="120" height="10" fill="#00ADD8"/>
-<rect x="352" y="52" width="34" height="10" fill="#F1E05A"/>
-<rect x="388" y="52" width="30" height="10" fill="#89E051"/>
-<rect x="420" y="52" width="27" height="10" fill="#083FA1"/>
-<rect x="449" y="52" width="9" height="10" fill="#C1D026"/>
-<rect x="460" y="52" width="8" height="10" fill="#3572A5"/>
-<rect x="470" y="52" width="7" height="10" fill="#292929"/>
-<rect x="479" y="52" width="7" height="10" fill="#CB171E"/>
-<rect x="488" y="52" width="4" height="10" fill="#3178C6"/>
-<rect x="494" y="52" width="2" height="10" rx="5" fill="#41B883"/>
+<rect x="24" y="52" width="203" height="10" rx="5" fill="#4F5D95"/><rect x="29" y="52" width="198" height="10" fill="#4F5D95"/>
+<rect x="229" y="52" width="121" height="10" fill="#00ADD8"/>
+<rect x="352" y="52" width="35" height="10" fill="#F1E05A"/>
+<rect x="389" y="52" width="30" height="10" fill="#89E051"/>
+<rect x="421" y="52" width="27" height="10" fill="#083FA1"/>
+<rect x="450" y="52" width="9" height="10" fill="#C1D026"/>
+<rect x="461" y="52" width="8" height="10" fill="#3572A5"/>
+<rect x="471" y="52" width="7" height="10" fill="#292929"/>
+<rect x="480" y="52" width="7" height="10" fill="#CB171E"/>
+<rect x="489" y="52" width="4" height="10" fill="#3178C6"/>
+<rect x="495" y="52" width="2" height="10" rx="5" fill="#41B883"/>
 <circle cx="29" cy="90" r="4" fill="#4F5D95"/>
 <text x="38" y="95" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#24292f" class="legend-name">PHP</text>
-<text x="166" y="95" text-anchor="end" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#57606a" class="legend-pct">45.0%</text>
+<text x="166" y="95" text-anchor="end" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#57606a" class="legend-pct">44.9%</text>
 <circle cx="179" cy="90" r="4" fill="#00ADD8"/>
 <text x="188" y="95" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#24292f" class="legend-name">Go</text>
 <text x="316" y="95" text-anchor="end" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#57606a" class="legend-pct">26.7%</text>
 <circle cx="329" cy="90" r="4" fill="#F1E05A"/>
 <text x="338" y="95" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#24292f" class="legend-name">JavaScript</text>
-<text x="466" y="95" text-anchor="end" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#57606a" class="legend-pct">7.6%</text>
+<text x="466" y="95" text-anchor="end" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#57606a" class="legend-pct">7.8%</text>
 <circle cx="29" cy="114" r="4" fill="#89E051"/>
 <text x="38" y="119" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#24292f" class="legend-name">Shell</text>
 <text x="166" y="119" text-anchor="end" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#57606a" class="legend-pct">6.6%</text>
@@ -57,5 +57,5 @@
 <circle cx="179" cy="162" r="4" fill="#41B883"/>
 <text x="188" y="167" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#24292f" class="legend-name">Vue</text>
 <text x="316" y="167" text-anchor="end" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#57606a" class="legend-pct">0.1%</text>
-<text x="24" y="196" font-family="'Segoe UI',system-ui,sans-serif" font-size="11" fill="#8c959f" class="footer">Updated 2026-08-28 16:21 UTC</text>
+<text x="24" y="196" font-family="'Segoe UI',system-ui,sans-serif" font-size="11" fill="#8c959f" class="footer">Updated 2026-08-29 08:32 UTC</text>
 </svg>
