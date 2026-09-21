@@ -29,7 +29,7 @@
 <text x="166" y="95" text-anchor="end" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#57606a" class="legend-pct">38.8%</text>
 <circle cx="179" cy="90" r="4" fill="#00ADD8"/>
 <text x="188" y="95" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#24292f" class="legend-name">Go</text>
-<text x="316" y="95" text-anchor="end" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#57606a" class="legend-pct">20.5%</text>
+<text x="316" y="95" text-anchor="end" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#57606a" class="legend-pct">20.4%</text>
 <circle cx="329" cy="90" r="4" fill="#3572A5"/>
 <text x="338" y="95" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#24292f" class="legend-name">Python</text>
 <text x="466" y="95" text-anchor="end" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#57606a" class="legend-pct">13.2%</text>
@@ -38,7 +38,7 @@
 <text x="166" y="119" text-anchor="end" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#57606a" class="legend-pct">10.4%</text>
 <circle cx="179" cy="114" r="4" fill="#89E051"/>
 <text x="188" y="119" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#24292f" class="legend-name">Shell</text>
-<text x="316" y="119" text-anchor="end" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#57606a" class="legend-pct">5.7%</text>
+<text x="316" y="119" text-anchor="end" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#57606a" class="legend-pct">5.8%</text>
 <circle cx="329" cy="114" r="4" fill="#083FA1"/>
 <text x="338" y="119" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#24292f" class="legend-name">Markdown</text>
 <text x="466" y="119" text-anchor="end" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#57606a" class="legend-pct">4.7%</text>
@@ -57,5 +57,5 @@
 <circle cx="179" cy="162" r="4" fill="#41B883"/>
 <text x="188" y="167" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#24292f" class="legend-name">Vue</text>
 <text x="316" y="167" text-anchor="end" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#57606a" class="legend-pct">0.2%</text>
-<text x="24" y="196" font-family="'Segoe UI',system-ui,sans-serif" font-size="11" fill="#8c959f" class="footer">Updated 2026-09-20 07:21 UTC</text>
+<text x="24" y="196" font-family="'Segoe UI',system-ui,sans-serif" font-size="11" fill="#8c959f" class="footer">Updated 2026-09-21 07:32 UTC</text>
 </svg>
