@@ -1,0 +1,129 @@
+<svg width="1214" height="204" viewBox="0 0 1214 204" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="PR reviews per week: 2025-09-25 to 2026-09-25">
+<style>
+.bg { fill: #fcfcfb; stroke: rgba(11,11,11,0.10); }
+.title { fill: #0b0b0b; }
+.axis-label { fill: #898781; }
+.baseline { stroke: #c3c2b7; }
+.bar { fill: #2a78d6; }
+.bar-label { fill: #52514e; }
+.footer { fill: #898781; }
+@media (prefers-color-scheme: dark) {
+  .bg { fill: #1a1a19; stroke: rgba(255,255,255,0.10); }
+  .title { fill: #ffffff; }
+  .axis-label { fill: #c3c2b7; }
+  .baseline { stroke: #383835; }
+  .bar { fill: #3987e5; }
+  .bar-label { fill: #c3c2b7; }
+  .footer { fill: #c3c2b7; }
+}
+</style>
+<rect class="bg" width="1214" height="204" rx="12" stroke-width="1"/>
+<text x="24" y="26" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="13" font-weight="500" class="title">PR reviews per week · 1521 total · 2025-09-25 to 2026-09-25</text>
+<rect class="bar" x="24.00" y="166.44" width="20.00" height="3.56"/>
+<text x="35.00" y="160.44" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">3</text>
+<rect class="bar" x="68.00" y="168.81" width="20.00" height="1.19"/>
+<text x="79.00" y="162.81" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">1</text>
+<rect class="bar" x="90.00" y="164.06" width="20.00" height="5.94"/>
+<text x="101.00" y="158.06" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">5</text>
+<rect class="bar" x="112.00" y="162.87" width="20.00" height="7.13"/>
+<text x="123.00" y="156.87" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">6</text>
+<rect class="bar" x="134.00" y="159.31" width="20.00" height="10.69"/>
+<text x="145.00" y="153.31" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">9</text>
+<rect class="bar" x="156.00" y="158.12" width="20.00" height="11.88"/>
+<text x="167.00" y="152.12" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">10</text>
+<rect class="bar" x="178.00" y="160.50" width="20.00" height="9.50"/>
+<text x="189.00" y="154.50" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">8</text>
+<rect class="bar" x="200.00" y="160.50" width="20.00" height="9.50"/>
+<text x="211.00" y="154.50" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">8</text>
+<rect class="bar" x="222.00" y="156.93" width="20.00" height="13.07"/>
+<text x="233.00" y="150.93" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">11</text>
+<rect class="bar" x="244.00" y="148.61" width="20.00" height="21.39"/>
+<text x="255.00" y="142.61" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">18</text>
+<rect class="bar" x="266.00" y="162.87" width="20.00" height="7.13"/>
+<text x="277.00" y="156.87" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">6</text>
+<rect class="bar" x="288.00" y="155.74" width="20.00" height="14.26"/>
+<text x="299.00" y="149.74" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">12</text>
+<rect class="bar" x="310.00" y="167.62" width="20.00" height="2.38"/>
+<text x="321.00" y="161.62" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">2</text>
+<rect class="bar" x="354.00" y="161.68" width="20.00" height="8.32"/>
+<text x="365.00" y="155.68" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">7</text>
+<rect class="bar" x="376.00" y="156.93" width="20.00" height="13.07"/>
+<text x="387.00" y="150.93" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">11</text>
+<rect class="bar" x="398.00" y="156.93" width="20.00" height="13.07"/>
+<text x="409.00" y="150.93" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">11</text>
+<rect class="bar" x="420.00" y="155.74" width="20.00" height="14.26"/>
+<text x="431.00" y="149.74" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">12</text>
+<rect class="bar" x="442.00" y="136.73" width="20.00" height="33.27"/>
+<text x="453.00" y="130.73" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">28</text>
+<rect class="bar" x="464.00" y="126.04" width="20.00" height="43.96"/>
+<text x="475.00" y="120.04" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">37</text>
+<rect class="bar" x="486.00" y="134.36" width="20.00" height="35.64"/>
+<text x="497.00" y="128.36" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">30</text>
+<rect class="bar" x="508.00" y="129.60" width="20.00" height="40.40"/>
+<text x="519.00" y="123.60" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">34</text>
+<rect class="bar" x="552.00" y="112.97" width="20.00" height="57.03"/>
+<text x="563.00" y="106.97" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">48</text>
+<rect class="bar" x="574.00" y="92.77" width="20.00" height="77.23"/>
+<text x="585.00" y="86.77" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">65</text>
+<rect class="bar" x="596.00" y="137.92" width="20.00" height="32.08"/>
+<text x="607.00" y="131.92" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">27</text>
+<rect class="bar" x="618.00" y="124.85" width="20.00" height="45.15"/>
+<text x="629.00" y="118.85" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">38</text>
+<rect class="bar" x="640.00" y="152.18" width="20.00" height="17.82"/>
+<text x="651.00" y="146.18" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">15</text>
+<rect class="bar" x="662.00" y="133.17" width="20.00" height="36.83"/>
+<text x="673.00" y="127.17" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">31</text>
+<rect class="bar" x="684.00" y="114.16" width="20.00" height="55.84"/>
+<text x="695.00" y="108.16" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">47</text>
+<rect class="bar" x="706.00" y="124.85" width="20.00" height="45.15"/>
+<text x="717.00" y="118.85" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">38</text>
+<rect class="bar" x="728.00" y="122.48" width="20.00" height="47.52"/>
+<text x="739.00" y="116.48" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">40</text>
+<rect class="bar" x="750.00" y="111.78" width="20.00" height="58.22"/>
+<text x="761.00" y="105.78" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">49</text>
+<rect class="bar" x="772.00" y="99.90" width="20.00" height="70.10"/>
+<text x="783.00" y="93.90" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">59</text>
+<rect class="bar" x="794.00" y="98.71" width="20.00" height="71.29"/>
+<text x="805.00" y="92.71" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">60</text>
+<rect class="bar" x="816.00" y="126.04" width="20.00" height="43.96"/>
+<text x="827.00" y="120.04" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">37</text>
+<rect class="bar" x="838.00" y="102.28" width="20.00" height="67.72"/>
+<text x="849.00" y="96.28" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">57</text>
+<rect class="bar" x="904.00" y="126.04" width="20.00" height="43.96"/>
+<text x="915.00" y="120.04" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">37</text>
+<rect class="bar" x="926.00" y="129.60" width="20.00" height="40.40"/>
+<text x="937.00" y="123.60" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">34</text>
+<rect class="bar" x="948.00" y="145.05" width="20.00" height="24.95"/>
+<text x="959.00" y="139.05" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">21</text>
+<rect class="bar" x="970.00" y="114.16" width="20.00" height="55.84"/>
+<text x="981.00" y="108.16" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">47</text>
+<rect class="bar" x="992.00" y="101.09" width="20.00" height="68.91"/>
+<text x="1003.00" y="95.09" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">58</text>
+<rect class="bar" x="1014.00" y="65.45" width="20.00" height="104.55"/>
+<text x="1025.00" y="59.45" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">88</text>
+<rect class="bar" x="1036.00" y="103.47" width="20.00" height="66.53"/>
+<text x="1047.00" y="97.47" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">56</text>
+<rect class="bar" x="1058.00" y="107.03" width="20.00" height="62.97"/>
+<text x="1069.00" y="101.03" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">53</text>
+<rect class="bar" x="1080.00" y="70.20" width="20.00" height="99.80"/>
+<text x="1091.00" y="64.20" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">84</text>
+<rect class="bar" x="1146.00" y="50.00" width="20.00" height="120.00"/>
+<text x="1157.00" y="44.00" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">101</text>
+<rect class="bar" x="1168.00" y="96.34" width="20.00" height="73.66"/>
+<text x="1179.00" y="90.34" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="bar-label">62</text>
+<line class="baseline" x1="24" y1="170" x2="1190" y2="170"/>
+<text x="24.00" y="184" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="axis-label">Sep</text>
+<text x="68.00" y="184" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="axis-label">Oct</text>
+<text x="156.00" y="184" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="axis-label">Nov</text>
+<text x="244.00" y="184" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="axis-label">Dec</text>
+<text x="354.00" y="184" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="axis-label">Jan</text>
+<text x="442.00" y="184" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="axis-label">Feb</text>
+<text x="530.00" y="184" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="axis-label">Mar</text>
+<text x="640.00" y="184" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="axis-label">Apr</text>
+<text x="728.00" y="184" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="axis-label">May</text>
+<text x="816.00" y="184" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="axis-label">Jun</text>
+<text x="926.00" y="184" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="axis-label">Jul</text>
+<text x="1014.00" y="184" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="axis-label">Aug</text>
+<text x="1124.00" y="184" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="axis-label">Sep</text>
+<text x="24" y="196" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="10" class="footer">Updated 2026-09-25 12:49 UTC</text>
+</svg>

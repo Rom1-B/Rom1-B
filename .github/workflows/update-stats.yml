@@ -28,7 +28,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
           GITHUB_ACTOR: Rom1-B
         run: python generate_stats.py
-      
+
+      - name: Generate review stats
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+          GITHUB_ACTOR: Rom1-B
+        run: python review_stats.py
+
       - name: Commit and push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -37,5 +43,5 @@ jobs:
           echo "https://x-access-token:${GITHUB_TOKEN}@github.com" > ~/.git-credentials
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add languages.svg
+          git add languages.svg reviews_by_week.svg
           git diff --quiet && git diff --staged --quiet || (git commit -m "Update GitHub stats" && git push)
