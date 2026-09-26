@@ -67,9 +67,10 @@ def generate_svg(daily: list[tuple[str, int]], total: int, period: str, updated_
     max_count = max((c for _, c in daily), default=0)
     n = len(daily)
 
-    # Bar width must fit its own count label (up to 3 digits at font-size 10).
-    label_chars = len(str(max_count)) if max_count else 1
-    bar_w = max(label_chars * 6 + 4, 14)
+    # Fixed to fit a 3-digit label at font-size 10, regardless of this
+    # chart's own max_count, so prs_by_week.svg and reviews_by_week.svg
+    # share the same aspect ratio when displayed side by side at width:100%.
+    bar_w = 3 * 6 + 4
     inner_w = bar_w * n
     width = pad_x * 2 + inner_w
     max_count = max_count or 1
