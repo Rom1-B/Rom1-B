@@ -28,7 +28,7 @@
 <rect x="500" y="52" width="2" height="10" rx="5" fill="#563D7C"/>
 <circle cx="29" cy="90" r="4" fill="#4F5D95"/>
 <text x="38" y="95" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#24292f" class="legend-name">PHP</text>
-<text x="166" y="95" text-anchor="end" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#57606a" class="legend-pct">42.7%</text>
+<text x="166" y="95" text-anchor="end" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#57606a" class="legend-pct">42.6%</text>
 <circle cx="179" cy="90" r="4" fill="#3572A5"/>
 <text x="188" y="95" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#24292f" class="legend-name">Python</text>
 <text x="316" y="95" text-anchor="end" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#57606a" class="legend-pct">13.9%</text>
@@ -40,7 +40,7 @@
 <text x="166" y="119" text-anchor="end" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#57606a" class="legend-pct">10.4%</text>
 <circle cx="179" cy="114" r="4" fill="#89E051"/>
 <text x="188" y="119" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#24292f" class="legend-name">Shell</text>
-<text x="316" y="119" text-anchor="end" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#57606a" class="legend-pct">5.7%</text>
+<text x="316" y="119" text-anchor="end" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#57606a" class="legend-pct">5.8%</text>
 <circle cx="329" cy="114" r="4" fill="#083FA1"/>
 <text x="338" y="119" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#24292f" class="legend-name">Markdown</text>
 <text x="466" y="119" text-anchor="end" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#57606a" class="legend-pct">4.2%</text>
@@ -65,5 +65,5 @@
 <circle cx="29" cy="186" r="4" fill="#563D7C"/>
 <text x="38" y="191" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#24292f" class="legend-name">CSS</text>
 <text x="166" y="191" text-anchor="end" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#57606a" class="legend-pct">0.1%</text>
-<text x="24" y="220" font-family="'Segoe UI',system-ui,sans-serif" font-size="11" fill="#8c959f" class="footer">Updated 2026-10-27 02:37 UTC</text>
+<text x="24" y="220" font-family="'Segoe UI',system-ui,sans-serif" font-size="11" fill="#8c959f" class="footer">Updated 2026-10-28 02:46 UTC</text>
 </svg>
