@@ -1,8 +1,9 @@
-# Shared building blocks for the weekly-bar-chart SVG stats scripts
-# (review_stats.py, pr_stats.py): retrying HTTP fetch, daily/weekly
-# bucketing, and SVG rendering.
+# Shared building blocks for the stats scripts: retrying HTTP fetch (all
+# scripts), plus daily/weekly bucketing and SVG rendering for the weekly-bar-chart
+# scripts (review_stats.py, pr_stats.py).
 
 import os
+import sys
 import time
 from collections import Counter
 from datetime import datetime, timedelta
@@ -18,19 +19,33 @@ MAX_RETRIES = 3
 headers = {"Authorization": f"token {GITHUB_TOKEN}"}
 
 
+def rate_limit_wait(response: requests.Response, attempt: int) -> int | None:
+    """Returns seconds to wait before retrying, or None if the error is not a rate limit."""
+    if 'Retry-After' in response.headers:
+        return int(response.headers['Retry-After'])
+    if response.headers.get('X-RateLimit-Remaining') == '0':
+        return max(1, int(response.headers['X-RateLimit-Reset']) - int(time.time()))
+    if response.status_code in (429, 503):
+        return 2 ** attempt
+    return None
+
+
 def fetch_with_retry(url: str) -> dict | list | None:
     for attempt in range(MAX_RETRIES):
         response = requests.get(url, headers=headers)
         if response.status_code == 200:
             return response.json()
-        if response.status_code in (429, 503):
-            wait = 2 ** attempt
+        if response.status_code == 401:
+            print("::error title=GitHub API::HTTP 401, PERSONAL_TOKEN is invalid or expired")
+            sys.exit(1)
+        wait = rate_limit_wait(response, attempt)
+        if wait is not None:
             print(f"  [Rate limited, retrying in {wait}s...]")
             time.sleep(wait)
             continue
-        print(f"  [HTTP {response.status_code} for {url}]")
+        print(f"::warning title=GitHub API::HTTP {response.status_code} for {url}")
         return None
-    print(f"  [Giving up after {MAX_RETRIES} retries: {url}]")
+    print(f"::warning title=GitHub API::Giving up after {MAX_RETRIES} retries: {url}")
     return None
 
 

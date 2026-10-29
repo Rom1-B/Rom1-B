@@ -2,23 +2,15 @@
 # then fetches each commit's file list concurrently and sums `additions` per
 # file extension. The result is rendered as a segmented bar chart in languages.svg.
 
-import requests
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
-import os
-import time
 from datetime import datetime
 
-GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
-USERNAME = os.getenv('GITHUB_ACTOR')
+from stats_common import GITHUB_SEARCH_LIMIT, USERNAME, fetch_with_retry
 
-GITHUB_SEARCH_LIMIT = 1000
 MAX_WORKERS = 10
-MAX_RETRIES = 3
 
 print(f"Generating stats for {USERNAME}...")
-
-headers = {"Authorization": f"token {GITHUB_TOKEN}"}
 
 IGNORED_FILES = {
     'package-lock.json',
@@ -88,22 +80,6 @@ FALLBACK_COLORS = [
     '#6E4ADB', '#0D9E75', '#D85A30', '#BA7517',
     '#378ADD', '#639922', '#D4537E', '#888780',
 ]
-
-
-def fetch_with_retry(url: str) -> dict | None:
-    for attempt in range(MAX_RETRIES):
-        response = requests.get(url, headers=headers)
-        if response.status_code == 200:
-            return response.json()
-        if response.status_code in (429, 503):
-            wait = 2 ** attempt
-            print(f"  [Rate limited, retrying in {wait}s...]")
-            time.sleep(wait)
-            continue
-        print(f"  [HTTP {response.status_code} for {url}]")
-        return None
-    print(f"  [Giving up after {MAX_RETRIES} retries: {url}]")
-    return None
 
 
 def process_commit(commit_url: str, repo_full_name: str) -> tuple[dict[str, int], datetime | None]:
